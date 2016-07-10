@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myCustomeDirectiveApp">
+<body >
+  <input type="text" ng-model="color" placeholder="Enter a color" />
+  <mydirective/>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js">
+</script>
+<script>
+var app = angular.module('myCustomeDirectiveApp', []);
+app.directive('mydirective', function() {
+  return {
+    restrict: 'AE',
+    replace: true,
+    template: '<p style="background-color:{{color}}">Hello asWorld',
+    link: function(scope, elem, attrs) {
+      elem.bind('click', function() {
+        elem.css('background-color', 'white');
+        scope.$apply(function() {
+          scope.color = "white";
+        });
+      });
+      elem.bind('mouseover', function() {
+        elem.css('cursor', 'pointer');
+      });
+    }
+  };
+});
+</script>
+</body>
+</html>
