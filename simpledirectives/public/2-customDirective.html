@@ -2,16 +2,16 @@
 <html ng-app="myCustomeDirectiveApp">
 <body >
   <input type="text" ng-model="color" placeholder="Enter a color" />
-  <mydirective/>
+   <div class="mydirective"> </div> <!-- directive: mydirective   -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js">
 </script>
 <script>
 var app = angular.module('myCustomeDirectiveApp', []);
 app.directive('mydirective', function() {
   return {
-    restrict: 'AE',
+    restrict: 'CEMA',
     replace: true,
-    template: '<p style="background-color:{{color}}">Hello asWorld',
+    template: '<p style="background-color:{{color}}">Hello World',
     link: function(scope, elem, attrs) {
       elem.bind('click', function() {
         elem.css('background-color', 'white');
