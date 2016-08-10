@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Custom Directives Demo</title>
+</head>
+<body ng-app="myCards" ng-controller="DataController as dc">
+  <h2 > Amazing Places</h2>
+  <div ng-repeat="place in dc.places">
+    <content-describer content-title="{{place.title}}"
+             content-pic="place.image"
+             content-content="place.description">
+    </content-describer>
+  </div>
+
+  <h2 > Adorable Dogs</h2>
+  <div ng-repeat="dog in dc.dogs">
+    <content-describer content-title="{{dog.title}}"
+             content-pic="dog.image"
+             content-content="dog.description">
+    </content-describer>
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js">
+</script>
+<script src="script.js"></script>
+</body>
+</html>

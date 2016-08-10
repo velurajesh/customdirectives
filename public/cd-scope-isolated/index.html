@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html ng-app="mydirectiveModule">
+<body ng-controller="CustomersController">
+   <my-isolated-scope 
+    some-other-name="customer.name" 
+    xyz-prof="{{customer.profession}}">
+   </my-isolated-scope>
+   <br>
+   <button ng-click="clickMethod()">Outside Directive</button>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js">
+</script>
+<script src="script.js"></script>
+</body>
+</html>

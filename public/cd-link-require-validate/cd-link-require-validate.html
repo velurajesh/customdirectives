@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+</script>
+<body ng-app="myDirectiveApp">
+
+<h4>Custom Directive: Must Have E </h4>
+<p>The input field must contain the character "e" to be considered valid. </p>
+<form name="myForm">
+<input name="myInput" ng-model="myInput" required must-have-e-directive>
+</form>
+
+<p>The input's valid state is: {{myForm.myInput.$valid}}</p>
+
+<script>
+var app = angular.module('myDirectiveApp', []);
+app.directive('mustHaveEDirective', function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attr, mCtrl) {
+            function myValidation(value) {
+                if (value.indexOf("e") > -1) {
+                    mCtrl.$setValidity('', true);
+                } else {
+                    mCtrl.$setValidity('', false);
+                }
+                return value;
+            }
+            mCtrl.$parsers.push(myValidation);
+        }
+    };
+});
+</script>
+</body>
+</html>

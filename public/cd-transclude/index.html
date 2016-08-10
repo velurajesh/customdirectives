@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html ng-app="mydirectiveModule">
+<body>
+   <isolated-scope-with-transclusion tasks="tasks">
+    <div ng-repeat="task in tasks track by $index">
+         <strong>{{ task.title }}</strong>
+    </div>
+</isolated-scope-with-transclusion>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js">
+</script>
+<script src="script.js"></script>
+</body>
+</html>
